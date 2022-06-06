@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<style>
+  button
+  {
+    border-radius: 25%;
+    margin: 10px;
+    font-size: 200%;
+    padding: 5px;
+  }
+</style>
+</head>
+<body ng-app="" ng-init="animal = ''">
+
+<button style = "background-color: hsl(0, 0%, 70%);" ng-click = "animal = 'wolves'">wolves</button>
+
+<button style = "background-color: yellow;" ng-click = "animal = 'cheetahs'">cheetahs</button>
+
+<button style = "background-color: hsl(20, 50%, 50%);" ng-click = "animal = 'owls'">owls</button>
+
+<button style = "background-color: white;" ng-click = "animal = 'cockatoos'">cockatoos</button>
+
+<div ng-switch = "animal">
+  <div ng-switch-when="wolves">
+     <h1>Wolves:</h1>
+     <ul>
+     <li>Fur</li>
+     <li>Teeth</li>
+     <li>Love</li>
+   </ul>
+  </div>
+  <div ng-switch-when="cheetahs">
+       <h1>Cheetahs:</h1>
+     <ul>
+     <li>Spots</li>
+     <li>Spikey tongues</li>
+     <li>Love</li>
+   </ul>
+  </div>
+  <div ng-switch-when="owls">
+      <h1>Owls:</h1>
+     <ul>
+     <li>Big eyes</li>
+     <li>Soft feathers</li>
+     <li>Love</li>
+   </ul>
+  </div>
+  <div ng-switch-when="cockatoos">
+      <h1>Cockatoos:</h1>
+     <ul>
+     <li>Feather crests</li>
+     <li>Silliness</li>
+     <li>Love</li>
+   </ul>
+  </div>
+  <div ng-switch-default>
+     <h1>My favorite animals:</h1>
+     <p>Learn about my favorite animals.</p>
+  </div>
+</div>
+</body>
+</html>

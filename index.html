@@ -12,15 +12,17 @@
   }
 </style>
 </head>
-<body ng-app="" ng-init="animal = ''">
+<!-- ng-style doesn't seem to be what I want.  I need something to change the style of another 
+element -->
+<body ng-app="myApp" ng-controller = "myCtrl" ng-init="animal = ''">
 
-<button style = "background-color: hsl(0, 0%, 70%);" ng-click = "animal = 'wolves'">wolves</button>
+<button style = "background-color: hsl(0, 0%, 70%);" ng-click = "animal = 'wolves'; wolfIt();">wolves</button>
 
-<button style = "background-color: yellow;" ng-click = "animal = 'cheetahs'">cheetahs</button>
+<button style = "background-color: yellow;" ng-click = "animal = 'cheetahs'; cheetahIt();">cheetahs</button>
 
-<button style = "background-color: hsl(20, 50%, 50%);" ng-click = "animal = 'owls'">owls</button>
+<button style = "background-color: hsl(20, 50%, 50%);" ng-click = "animal = 'owls'; owlIt();">owls</button>
 
-<button style = "background-color: white;" ng-click = "animal = 'cockatoos'">cockatoos</button>
+<button style = "background-color: white;" ng-click = "animal = 'cockatoos'; cockatooIt()">cockatoos</button>
 
 <div ng-switch = "animal">
   <div ng-switch-when="wolves">
@@ -60,5 +62,24 @@
      <p>Learn about my favorite animals.</p>
   </div>
 </div>
+
+<script>
+var app = angular.module("myApp", []);
+app.controller("myCtrl", function($scope) {
+    $scope.wolfIt = function(){
+       document.body.style.backgroundColor = "gray";
+    }
+    $scope.cheetahIt = function(){
+       // document.body.style.backgroundImage = "url(cheetah.png)";
+       //this seems to break all the others
+    }
+    $scope.owlIt = function(){
+       document.body.style.backgroundColor = "brown";
+    }
+    $scope.cockatooIt = function(){
+       document.body.style.backgroundColor = "white";
+    }
+});
+</script>
 </body>
 </html>
